@@ -29,8 +29,8 @@ for M in M_values:
     for iter in range(6):
         networks = []
         for i in range(M):
-            network = ToyNet("eval_Ensemble-Adam-Fixed", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-            network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-Adam-Fixed_%d_M%d_%d/checkpoints/model_Ensemble-Adam-Fixed_%d_M%d_epoch_150.pth" % (iter+1, M, i, iter+1, M)))
+            network = ToyNet("eval_Ensemble-Adam-Fixed", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+            network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-Adam-Fixed_%d_M%d_%d/checkpoints/model_Ensemble-Adam-Fixed_%d_M%d_epoch_150.pth" % (iter+1, M, i, iter+1, M)))
             networks.append(network)
 
         M_float = float(len(networks))

@@ -28,8 +28,8 @@ for M in M_values:
 
         networks = []
         for i in network_inds:
-            network = ToyNet("eval_Ensemble-MAP-Adam_1_M1024", project_dir="/root/evaluating_bdl/toyRegression").cuda()
-            network.load_state_dict(torch.load("/root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-Adam_1_M1024_%d/checkpoints/model_Ensemble-MAP-Adam_1_M1024_epoch_150.pth" % i))
+            network = ToyNet("eval_Ensemble-MAP-Adam_1_M1024", project_dir="./root/evaluating_bdl/toyRegression").cuda()
+            network.load_state_dict(torch.load("./root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-Adam_1_M1024_%d/checkpoints/model_Ensemble-MAP-Adam_1_M1024_epoch_150.pth" % i))
             networks.append(network)
 
         M_float = float(len(networks))

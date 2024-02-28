@@ -45,8 +45,8 @@ for M in M_values:
         for i in range(M):
             print (int(num_epochs - i*step_size))
 
-            network = ToyNet("eval_SGHMC-256_1-10", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-            network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_SGHMC-256_%d/checkpoints/model_SGHMC-256_%d_epoch_%d.pth" % (iter+1, iter+1, int(num_epochs - i*step_size))))
+            network = ToyNet("eval_SGHMC-256_1-10", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+            network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_SGHMC-256_%d/checkpoints/model_SGHMC-256_%d_epoch_%d.pth" % (iter+1, iter+1, int(num_epochs - i*step_size))))
             networks.append(network)
 
         M_float = float(len(networks))

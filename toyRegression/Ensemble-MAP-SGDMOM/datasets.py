@@ -18,17 +18,17 @@ class ToyDataset(torch.utils.data.Dataset):
     def __init__(self):
         self.examples = []
 
-        with open("/root/evaluating_bdl/toyRegression/x.pkl", "rb") as file: # (needed for python3)
+        with open("./root/evaluating_bdl/toyRegression/x.pkl", "rb") as file: # (needed for python3)
             x = pickle.load(file)
 
-        with open("/root/evaluating_bdl/toyRegression/y.pkl", "rb") as file: # (needed for python3)
+        with open("./root/evaluating_bdl/toyRegression/y.pkl", "rb") as file: # (needed for python3)
             y = pickle.load(file)
 
         plt.figure(1)
         plt.plot(x, y, "k.")
         plt.ylabel("y")
         plt.xlabel("x")
-        plt.savefig("/root/evaluating_bdl/toyRegression/Ensemble-MAP-SGDMOM/training_data.png")
+        plt.savefig("./root/evaluating_bdl/toyRegression/Ensemble-MAP-SGDMOM/training_data.png")
         plt.close(1)
 
         for i in range(x.shape[0]):

@@ -20,16 +20,16 @@ import cv2
 model_id = "mcdropout_virtual_0"
 M = 4
 
-snapshot_dir = "/root/evaluating_bdl/depthCompletion/training_logs/%s_eval" % model_id
+snapshot_dir = "./root/evaluating_bdl/depthCompletion/training_logs/%s_eval" % model_id
 
-kitti_depth_path = "/root/data/kitti_depth"
+kitti_depth_path = "./root/data/kitti_depth"
 
 batch_size = 4
 
 if not os.path.exists(snapshot_dir):
     os.makedirs(snapshot_dir)
 
-restore_from = "/root/evaluating_bdl/depthCompletion/trained_models/%s/checkpoint_40000.pth" % model_id
+restore_from = "./root/evaluating_bdl/depthCompletion/trained_models/%s/checkpoint_40000.pth" % model_id
 model = DepthCompletionNet().cuda()
 model = torch.nn.DataParallel(model)
 model.load_state_dict(torch.load(restore_from))

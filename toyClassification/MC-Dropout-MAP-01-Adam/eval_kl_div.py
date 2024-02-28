@@ -24,7 +24,7 @@ num_points = 60
 
 epsilon = 1.0e-30
 
-with open("/root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
     false_prob_values_HMC = pickle.load(file) # (shape: (60, 60))
 print (false_prob_values_HMC.shape)
 print (np.max(false_prob_values_HMC))
@@ -71,8 +71,8 @@ for M in M_values:
     KL_p_HMC_q_total_values = []
     KL_p_HMC_q_train_values = []
     for l in range(L):
-        network = ToyNet("eval_MC-Dropout-MAP-01-Adam_1_M10", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-        network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_MC-Dropout-MAP-01-Adam_1_M10_%d/checkpoints/model_MC-Dropout-MAP-01-Adam_1_M10_epoch_300.pth" % l))
+        network = ToyNet("eval_MC-Dropout-MAP-01-Adam_1_M10", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+        network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_MC-Dropout-MAP-01-Adam_1_M10_%d/checkpoints/model_MC-Dropout-MAP-01-Adam_1_M10_epoch_300.pth" % l))
 
         M_float = float(M)
         # print (M_float)

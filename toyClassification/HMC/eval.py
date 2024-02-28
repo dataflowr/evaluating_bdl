@@ -59,7 +59,7 @@ for i in range(num_samples):
     fc3_weight = fc3_weight_samples[i, 0, :] # (shape: (1, 10))
     fc3_bias = fc3_bias_samples[i, 0, :] # (shape: (1, ))
 
-    network = ToyNet("eval_HMC", project_dir="/root/evaluating_bdl/toyClassification").cuda()
+    network = ToyNet("eval_HMC", project_dir="./root/evaluating_bdl/toyClassification").cuda()
     for name, param in network.named_parameters():
         if name == "fc1.weight":
             param.data = torch.from_numpy(fc1_weight).cuda()
@@ -104,10 +104,10 @@ with open("%s/false_prob_values.pkl" % network.model_dir, "wb") as file:
     pickle.dump(false_prob_values, file)
 
 # #####
-# with open("/root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
+# with open("./root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
 #     false_prob_values = pickle.load(file) # (shape: (60, 60))
 # x_values = np.linspace(x_min, x_max, num_points, dtype=np.float32)
-# network = ToyNet("eval_HMC", project_dir="/root/evaluating_bdl/toyClassification").cuda()
+# network = ToyNet("eval_HMC", project_dir="./root/evaluating_bdl/toyClassification").cuda()
 # #####
 
 plt.figure(1)
@@ -119,10 +119,10 @@ plt.savefig("%s/predictive_density.png" % network.model_dir)
 plt.savefig("%s/predictive_density.pdf" % network.model_dir, dpi=400)
 plt.close(1)
 
-with open("/root/evaluating_bdl/toyClassification/x.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/x.pkl", "rb") as file: # (needed for python3)
     x = pickle.load(file) # (shape: (2000, 2))
 
-with open("/root/evaluating_bdl/toyClassification/y.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/y.pkl", "rb") as file: # (needed for python3)
     y = pickle.load(file) #  (shape: (2000, ))
 
 x_1_train = []

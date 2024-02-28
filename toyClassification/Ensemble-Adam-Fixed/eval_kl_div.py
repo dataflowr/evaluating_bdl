@@ -24,7 +24,7 @@ num_points = 60
 
 epsilon = 1.0e-30
 
-with open("/root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
     false_prob_values_HMC = pickle.load(file) # (shape: (60, 60))
 print (false_prob_values_HMC.shape)
 print (np.max(false_prob_values_HMC))
@@ -71,8 +71,8 @@ for j in range(10):
 
     networks = []
     for i in range(M):
-        network = ToyNet("eval_Ensemble-Adam-Fixed_%d_M4" % (j+1), project_dir="/root/evaluating_bdl/toyClassification").cuda()
-        network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-Adam-Fixed_%d_M4_%d/checkpoints/model_Ensemble-Adam-Fixed_%d_M4_epoch_150.pth" % (j+1, i, j+1)))
+        network = ToyNet("eval_Ensemble-Adam-Fixed_%d_M4" % (j+1), project_dir="./root/evaluating_bdl/toyClassification").cuda()
+        network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-Adam-Fixed_%d_M4_%d/checkpoints/model_Ensemble-Adam-Fixed_%d_M4_epoch_150.pth" % (j+1, i, j+1)))
         networks.append(network)
 
     M_float = float(len(networks))

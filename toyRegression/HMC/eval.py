@@ -90,7 +90,7 @@ for i in range(num_samples):
     fc3_var_weight = fc3_var_weight_samples[i, 0, :] # (shape: (1, 10))
     fc3_var_bias = fc3_var_bias_samples[i, 0, :] # (shape: (1, ))
 
-    network = ToyNet("eval_HMC", project_dir="/root/evaluating_bdl/toyRegression").cuda()
+    network = ToyNet("eval_HMC", project_dir="./root/evaluating_bdl/toyRegression").cuda()
     for name, param in network.named_parameters():
         if name == "fc1_mean.weight":
             param.data = torch.from_numpy(fc1_mean_weight).cuda()
@@ -200,16 +200,16 @@ with open("%s/final_sigma_tot_values.pkl" % network.model_dir, "wb") as file:
     pickle.dump(final_sigma_tot_values, file)
 
 # #####
-# network = ToyNet("eval_HMC", project_dir="/root/evaluating_bdl/toyRegression").cuda()
-# with open("/root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
+# network = ToyNet("eval_HMC", project_dir="./root/evaluating_bdl/toyRegression").cuda()
+# with open("./root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
 #     x_values = pickle.load(file) # (list of 1000 elements)
-# with open("/root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
+# with open("./root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
 #     final_mean_values = pickle.load(file) # (list of 1000 elements)
-# with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_alea_values.pkl", "rb") as file: # (needed for python3)
+# with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_alea_values.pkl", "rb") as file: # (needed for python3)
 #     final_sigma_alea_values = pickle.load(file) # (list of 1000 elements)
-# with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_epi_values.pkl", "rb") as file: # (needed for python3)
+# with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_epi_values.pkl", "rb") as file: # (needed for python3)
 #     final_sigma_epi_values = pickle.load(file) # (list of 1000 elements)
-# with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
+# with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
 #     final_sigma_tot_values = pickle.load(file) # (list of 1000 elements)
 # #####
 

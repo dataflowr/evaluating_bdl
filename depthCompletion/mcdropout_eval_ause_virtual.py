@@ -28,9 +28,9 @@ model_id = "mcdropout_virtual"
 model_is = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 print (len(model_is))
 
-snapshot_dir = "/root/evaluating_bdl/depthCompletion/training_logs/%s_eval_ause_virtual" % model_id
+snapshot_dir = "./root/evaluating_bdl/depthCompletion/training_logs/%s_eval_ause_virtual" % model_id
 
-virtualkitti_path = "/root/data/virtualkitti"
+virtualkitti_path = "./root/data/virtualkitti"
 
 batch_size = 4
 
@@ -112,7 +112,7 @@ rmse_criterion = RMSE().cuda()
 for model_i in model_is:
     print ("model_i: %d" % model_i)
 
-    restore_from = "/root/evaluating_bdl/depthCompletion/trained_models/%s_%d/checkpoint_40000.pth" % (model_id, model_i)
+    restore_from = "./root/evaluating_bdl/depthCompletion/trained_models/%s_%d/checkpoint_40000.pth" % (model_id, model_i)
     model = DepthCompletionNet().cuda()
     model = torch.nn.DataParallel(model)
     model.load_state_dict(torch.load(restore_from))

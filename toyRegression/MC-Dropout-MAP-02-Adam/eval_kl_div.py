@@ -22,13 +22,13 @@ batch_size = 32
 
 max_logvar = 2.0
 
-with open("/root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
     x_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
     mean_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
     sigma_squared_values_HMC = pickle.load(file) # (list of 1000 elements)
 
 print (len(x_values_HMC))
@@ -64,8 +64,8 @@ for M in M_values:
     KL_p_HMC_q_train_GT_values = []
     for l in range(L):
 
-        network = ToyNet("eval_MC-Dropout-MAP-02-Adam_1_M10", project_dir="/root/evaluating_bdl/toyRegression").cuda()
-        network.load_state_dict(torch.load("/root/evaluating_bdl/toyRegression/training_logs/model_MC-Dropout-MAP-02-Adam_1_M10_%d/checkpoints/model_MC-Dropout-MAP-02-Adam_1_M10_epoch_300.pth" % l))
+        network = ToyNet("eval_MC-Dropout-MAP-02-Adam_1_M10", project_dir="./root/evaluating_bdl/toyRegression").cuda()
+        network.load_state_dict(torch.load("./root/evaluating_bdl/toyRegression/training_logs/model_MC-Dropout-MAP-02-Adam_1_M10_%d/checkpoints/model_MC-Dropout-MAP-02-Adam_1_M10_epoch_300.pth" % l))
 
         M_float = float(M)
         # print (M_float)

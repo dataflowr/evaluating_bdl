@@ -36,13 +36,13 @@ for j in range(10):
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
 
     init_param_values = {}
-    network = ToyNet(model_id, project_dir="/root/evaluating_bdl/toyClassification").cuda()
+    network = ToyNet(model_id, project_dir="./root/evaluating_bdl/toyClassification").cuda()
     for name, param in network.named_parameters():
         init_param_values[name] = param.data
 
     M = 4
     for i in range(M):
-        network = ToyNet(model_id + "_%d" % i, project_dir="/root/evaluating_bdl/toyClassification").cuda()
+        network = ToyNet(model_id + "_%d" % i, project_dir="./root/evaluating_bdl/toyClassification").cuda()
 
         for name, param in network.named_parameters():
             param.data = torch.tensor(init_param_values[name]) # NOTE! create a copy!

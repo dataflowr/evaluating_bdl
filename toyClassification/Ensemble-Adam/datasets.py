@@ -38,9 +38,9 @@ import pickle
 #
 # y = np.array(y)
 #
-# with open("/root/evaluating_bdl/toyClassification/x.pkl", "wb") as file:
+# with open("./root/evaluating_bdl/toyClassification/x.pkl", "wb") as file:
 #     pickle.dump(x, file)
-# with open("/root/evaluating_bdl/toyClassification/y.pkl", "wb") as file:
+# with open("./root/evaluating_bdl/toyClassification/y.pkl", "wb") as file:
 #     pickle.dump(y, file)
 #
 # x_false = x[y == 0] # (shape: (num_false, 2))
@@ -51,7 +51,7 @@ import pickle
 # plt.plot(x_true[:, 0], x_true[:, 1], "b.")
 # plt.ylabel("x_2")
 # plt.xlabel("x_1")
-# plt.savefig("/root/evaluating_bdl/toyClassification/data.png")
+# plt.savefig("./root/evaluating_bdl/toyClassification/data.png")
 # plt.close(1)
 #
 # x_1_train = []
@@ -79,7 +79,7 @@ import pickle
 # plt.plot(x_train_true[:, 0], x_train_true[:, 1], "b.")
 # plt.ylabel("x_2")
 # plt.xlabel("x_1")
-# plt.savefig("/root/evaluating_bdl/toyClassification/training_data.png")
+# plt.savefig("./root/evaluating_bdl/toyClassification/training_data.png")
 # plt.close(1)
 # ################################################################################
 
@@ -87,10 +87,10 @@ class ToyDataset(torch.utils.data.Dataset):
     def __init__(self):
         self.examples = []
 
-        with open("/root/evaluating_bdl/toyClassification/x.pkl", "rb") as file: # (needed for python3)
+        with open("./root/evaluating_bdl/toyClassification/x.pkl", "rb") as file: # (needed for python3)
             x = pickle.load(file) # (shape: (2000, 2))
 
-        with open("/root/evaluating_bdl/toyClassification/y.pkl", "rb") as file: # (needed for python3)
+        with open("./root/evaluating_bdl/toyClassification/y.pkl", "rb") as file: # (needed for python3)
             y = pickle.load(file) #  (shape: (2000, ))
 
         x_1_train = []
@@ -118,7 +118,7 @@ class ToyDataset(torch.utils.data.Dataset):
         plt.xlabel("x_1")
         plt.xlim([-3, 3])
         plt.ylim([-3, 3])
-        plt.savefig("/root/evaluating_bdl/toyClassification/Ensemble-Adam/training_data.png")
+        plt.savefig("./root/evaluating_bdl/toyClassification/Ensemble-Adam/training_data.png")
         plt.close(1)
 
         for i in range(x_train.shape[0]):

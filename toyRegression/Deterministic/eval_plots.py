@@ -20,8 +20,8 @@ import cv2
 
 batch_size = 32
 
-network = ToyNet("eval_Deterministic", project_dir="/root/evaluating_bdl/toyRegression").cuda()
-network.load_state_dict(torch.load("/root/evaluating_bdl/toyRegression/training_logs/model_Deterministic/checkpoints/model_Deterministic_epoch_150.pth"))
+network = ToyNet("eval_Deterministic", project_dir="./root/evaluating_bdl/toyRegression").cuda()
+network.load_state_dict(torch.load("./root/evaluating_bdl/toyRegression/training_logs/model_Deterministic/checkpoints/model_Deterministic_epoch_150.pth"))
 
 val_dataset = ToyDatasetEval()
 

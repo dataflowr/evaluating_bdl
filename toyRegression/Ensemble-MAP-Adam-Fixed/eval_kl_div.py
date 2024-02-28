@@ -22,13 +22,13 @@ batch_size = 32
 
 max_logvar = 2.0
 
-with open("/root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
     x_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
     mean_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
     sigma_squared_values_HMC = pickle.load(file) # (list of 1000 elements)
 
 print (len(x_values_HMC))
@@ -63,8 +63,8 @@ for j in range(10):
 
     networks = []
     for i in range(M):
-        network = ToyNet("eval_Ensemble-MAP-Adam-Fixed_%d_M4" % (j + 1), project_dir="/root/evaluating_bdl/toyRegression").cuda()
-        network.load_state_dict(torch.load("/root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-Adam-Fixed_%d_M4_%d/checkpoints/model_Ensemble-MAP-Adam-Fixed_%d_M4_epoch_150.pth" % (j+1, i, j+1)))
+        network = ToyNet("eval_Ensemble-MAP-Adam-Fixed_%d_M4" % (j + 1), project_dir="./root/evaluating_bdl/toyRegression").cuda()
+        network.load_state_dict(torch.load("./root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-Adam-Fixed_%d_M4_%d/checkpoints/model_Ensemble-MAP-Adam-Fixed_%d_M4_epoch_150.pth" % (j+1, i, j+1)))
         networks.append(network)
 
     M_float = float(len(networks))

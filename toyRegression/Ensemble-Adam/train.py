@@ -34,7 +34,7 @@ train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=bat
 
 M = 1024
 for i in range(M):
-    network = ToyNet(model_id + "_%d" % i, project_dir="/root/evaluating_bdl/toyRegression").cuda()
+    network = ToyNet(model_id + "_%d" % i, project_dir="./root/evaluating_bdl/toyRegression").cuda()
 
     optimizer = torch.optim.Adam(network.parameters(), lr=learning_rate)
 

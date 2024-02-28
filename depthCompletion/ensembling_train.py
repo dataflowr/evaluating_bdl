@@ -23,10 +23,10 @@ import matplotlib.pyplot as plt
 
 model_id = "ensembling"
 
-snapshot_dir_base = "/root/evaluating_bdl/depthCompletion/training_logs/%s" % model_id
+snapshot_dir_base = "./root/evaluating_bdl/depthCompletion/training_logs/%s" % model_id
 
-kitti_depth_path = "/root/data/kitti_depth"
-kitti_rgb_path = "/root/data/kitti_rgb"
+kitti_depth_path = "./root/data/kitti_depth"
+kitti_rgb_path = "./root/data/kitti_rgb"
 
 batch_size = 4
 weight_decay = 0.0005

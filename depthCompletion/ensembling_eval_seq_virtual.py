@@ -21,15 +21,15 @@ model_id = "ensembling_virtual"
 model_is = [0, 1, 2, 3, 4, 5, 6, 7]
 print (model_is)
 
-snapshot_dir = "/root/evaluating_bdl/depthCompletion/training_logs/%s_%s_eval_seq_virtual" % (model_id, str(model_is))
+snapshot_dir = "./root/evaluating_bdl/depthCompletion/training_logs/%s_%s_eval_seq_virtual" % (model_id, str(model_is))
 
-virtualkitti_path = "/root/data/virtualkitti"
+virtualkitti_path = "./root/data/virtualkitti"
 
 batch_size = 4
 
 models = []
 for i in model_is:
-    restore_from = "/root/evaluating_bdl/depthCompletion/trained_models/%s_%d/checkpoint_40000.pth" % (model_id, i)
+    restore_from = "./root/evaluating_bdl/depthCompletion/trained_models/%s_%d/checkpoint_40000.pth" % (model_id, i)
     model = DepthCompletionNet().cuda()
     model = torch.nn.DataParallel(model)
     model.load_state_dict(torch.load(restore_from))

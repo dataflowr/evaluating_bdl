@@ -26,8 +26,8 @@ max_logvar = 2.0
 
 networks = []
 for i in range(M):
-    network = ToyNet("eval_Ensemble-MAP-SGD_1_M1024", project_dir="/root/evaluating_bdl/toyRegression").cuda()
-    network.load_state_dict(torch.load("/root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-SGD_1_M1024_%d/checkpoints/model_Ensemble-MAP-SGD_1_M1024_epoch_150.pth" % i))
+    network = ToyNet("eval_Ensemble-MAP-SGD_1_M1024", project_dir="./root/evaluating_bdl/toyRegression").cuda()
+    network.load_state_dict(torch.load("./root/evaluating_bdl/toyRegression/training_logs/model_Ensemble-MAP-SGD_1_M1024_%d/checkpoints/model_Ensemble-MAP-SGD_1_M1024_epoch_150.pth" % i))
     networks.append(network)
 
 M = float(len(networks))
@@ -173,13 +173,13 @@ plt.title("predicted vs true mean(x) with total uncertainty")
 plt.savefig("%s/mu_tot_pred_true.png" % network.model_dir)
 plt.close(1)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/x_values.pkl", "rb") as file: # (needed for python3)
     x_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_mean_values.pkl", "rb") as file: # (needed for python3)
     mean_values_HMC = pickle.load(file) # (list of 1000 elements)
 
-with open("/root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/HMC/final_sigma_tot_values.pkl", "rb") as file: # (needed for python3)
     sigma_squared_values_HMC = pickle.load(file) # (list of 1000 elements)
 
 plt.figure(1)
@@ -219,10 +219,10 @@ plt.tight_layout(pad=0.1, w_pad=0.1, h_pad=0.1)
 plt.savefig("%s/predictive_density_.png" % network.model_dir)
 plt.close(1)
 
-with open("/root/evaluating_bdl/toyRegression/x.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/x.pkl", "rb") as file: # (needed for python3)
     x = pickle.load(file)
 
-with open("/root/evaluating_bdl/toyRegression/y.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyRegression/y.pkl", "rb") as file: # (needed for python3)
     y = pickle.load(file)
 
 plt.figure(1)

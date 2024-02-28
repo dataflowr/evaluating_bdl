@@ -28,8 +28,8 @@ M_values = [1, 4, 16, 64, 256]
 for M in M_values:
     for iter in range(6):
 
-        network = ToyNet("eval_MC-Dropout-MAP-02-SGDMOM_1_M10", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-        network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_MC-Dropout-MAP-02-SGDMOM_1_M10_%d/checkpoints/model_MC-Dropout-MAP-02-SGDMOM_1_M10_epoch_300.pth" % iter))
+        network = ToyNet("eval_MC-Dropout-MAP-02-SGDMOM_1_M10", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+        network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_MC-Dropout-MAP-02-SGDMOM_1_M10_%d/checkpoints/model_MC-Dropout-MAP-02-SGDMOM_1_M10_epoch_300.pth" % iter))
 
         M_float = float(M)
         print (M_float)

@@ -30,7 +30,7 @@ num_points = 60
 
 epsilon = 1.0e-30
 
-with open("/root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
     false_prob_values_HMC = pickle.load(file) # (shape: (60, 60))
 print (false_prob_values_HMC.shape)
 print (np.max(false_prob_values_HMC))
@@ -84,8 +84,8 @@ for M in M_values:
         for i in range(M):
             #print (int(num_epochs - i*step_size))
 
-            network = ToyNet("eval_SGLD-256_1-10", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-            network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_SGLD-256_%d/checkpoints/model_SGLD-256_%d_epoch_%d.pth" % (j+1, j+1, int(num_epochs - i*step_size))))
+            network = ToyNet("eval_SGLD-256_1-10", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+            network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_SGLD-256_%d/checkpoints/model_SGLD-256_%d_epoch_%d.pth" % (j+1, j+1, int(num_epochs - i*step_size))))
             networks.append(network)
 
         M_float = float(len(networks))

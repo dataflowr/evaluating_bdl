@@ -8,7 +8,7 @@ import torch
 
 from model_pytorch import ToyNet
 
-det_net = ToyNet("HMC", project_dir="/root/evaluating_bdl/toyRegression").cuda()
+det_net = ToyNet("HMC", project_dir="./root/evaluating_bdl/toyRegression").cuda()
 
 def model(x, y):
     fc1_mean_weight_prior = pyro.distributions.Normal(loc=torch.zeros_like(det_net.fc1_mean.weight), scale=torch.ones_like(det_net.fc1_mean.weight))

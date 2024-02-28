@@ -23,9 +23,9 @@ import matplotlib.pyplot as plt
 
 model_id = "ensembling_virtual"
 
-snapshot_dir_base = "/root/evaluating_bdl/depthCompletion/training_logs/%s" % model_id
+snapshot_dir_base = "./root/evaluating_bdl/depthCompletion/training_logs/%s" % model_id
 
-virtualkitti_path = "/root/data/virtualkitti"
+virtualkitti_path = "./root/data/virtualkitti"
 
 batch_size = 4
 weight_decay = 0.0005

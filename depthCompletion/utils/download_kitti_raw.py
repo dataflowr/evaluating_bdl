@@ -3,9 +3,9 @@
 
 import os
 
-# NOTE! NOTE! NOTE! make sure you run this code inside the kitti_raw directory (/root/data/kitti_raw)
+# NOTE! NOTE! NOTE! make sure you run this code inside the kitti_raw directory (./root/data/kitti_raw)
 
-kitti_depth_path = "/root/data/kitti_depth"
+kitti_depth_path = "./root/data/kitti_depth"
 
 train_dirs = os.listdir(kitti_depth_path + "/train") # (contains "2011_09_26_drive_0001_sync" and so on)
 val_dirs = os.listdir(kitti_depth_path + "/val")

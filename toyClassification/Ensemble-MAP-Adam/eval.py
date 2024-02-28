@@ -28,8 +28,8 @@ num_points = 60
 
 networks = []
 for i in range(M):
-    network = ToyNet("eval_Ensemble-MAP-Adam_1_M1024", project_dir="/root/evaluating_bdl/toyClassification").cuda()
-    network.load_state_dict(torch.load("/root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-MAP-Adam_1_M1024_%d/checkpoints/model_Ensemble-MAP-Adam_1_M1024_epoch_150.pth" % i))
+    network = ToyNet("eval_Ensemble-MAP-Adam_1_M1024", project_dir="./root/evaluating_bdl/toyClassification").cuda()
+    network.load_state_dict(torch.load("./root/evaluating_bdl/toyClassification/training_logs/model_Ensemble-MAP-Adam_1_M1024_%d/checkpoints/model_Ensemble-MAP-Adam_1_M1024_epoch_150.pth" % i))
     networks.append(network)
 
 M = float(len(networks))
@@ -95,7 +95,7 @@ plt.colorbar()
 plt.savefig("%s/predictive_density_gray_GT.png" % network.model_dir)
 plt.close(1)
 
-with open("/root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
+with open("./root/evaluating_bdl/toyClassification/HMC/false_prob_values.pkl", "rb") as file: # (needed for python3)
     false_prob_values_HMC = pickle.load(file) # (shape: (60, 60))
 x_values = np.linspace(x_min, x_max, num_points, dtype=np.float32)
 x_1, x_2 = np.meshgrid(x_values, x_values)

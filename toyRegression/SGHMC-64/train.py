@@ -124,7 +124,7 @@ for i in range(10):
 
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
 
-    network = ToyNet(model_id, project_dir="/root/evaluating_bdl/toyRegression").cuda()
+    network = ToyNet(model_id, project_dir="./root/evaluating_bdl/toyRegression").cuda()
 
     optimizer = SGD(network.parameters(), momentum=(1.0-eta), lr=learning_rate)
 
